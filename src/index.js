@@ -1,11 +1,9 @@
 // eslint-disable-next-line max-classes-per-file
-import _ from 'lodash';
 import './style.css';
-import '@fortawesome/fontawesome-free/js/fontawesome';
-import '@fortawesome/fontawesome-free/js/solid';
-import '@fortawesome/fontawesome-free/js/regular';
-import '@fortawesome/fontawesome-free/js/brands';
-import Icon from './left-arrow.svg';
+import '@fortawesome/fontawesome-free/js/fontawesome.js';
+import '@fortawesome/fontawesome-free/js/solid.js';
+import '@fortawesome/fontawesome-free/js/regular.js';
+import '@fortawesome/fontawesome-free/js/brands.js';
 
 class Task {
   constructor(index, description) {
@@ -22,7 +20,7 @@ class Tasks {
   }
 
   addTask(description) {
-    this.lastIndex++;
+    this.lastIndex += 1;
     const task = new Task(this.lastIndex, description);
     this.list = [...this.list, task];
   }
@@ -49,11 +47,11 @@ const listContainer = document.querySelector('ul');
 
 function showList() {
   taskList.sortList();
-  for (let item of taskList.list) {
+  taskList.list.forEach((item) => {
     const li = document.createElement('li');
-    li.innerHTML= `<input type="checkbox" id="check-${item.index}"><textarea>${item.description}</textarea><i class="fas fa-ellipsis-v"></i>`;
+    li.innerHTML = `<input type="checkbox" id="check-${item.index}"><textarea>${item.description}</textarea><i class="fas fa-ellipsis-v"></i>`;
     listContainer.appendChild(li);
-  }
+  });
 }
 
 showList();
