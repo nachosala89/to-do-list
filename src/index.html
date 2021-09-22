@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://use.fontawesome.com/75966287eb.js"></script>
+  <title>To-do List</title>
 </head>
 <body>
-    <h1>To-do List</h1>
+  <h1>To-do List</h1>
+  <div id="list-container">
+    <ul>
+      <li><span>Today's To Do</span><i class="fas fa-sync-alt"></i></li>
+      <li id="add-task"><input type="text" placeholder="Add to your list..."><div class="enter-icon"></div></li>
+    </ul>
+    <div id="clear">
+      <button>Clear all completed</button>
+    </div>
+  </div>
 </body>
 </html>
