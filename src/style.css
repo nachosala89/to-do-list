@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body {
+  background-color: #f6f6f6;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+#list-container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #f6f6f6;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #ebebeb;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+li:focus-within {
+  background-color: #fff8c7;
+}
+
+#add-task input::placeholder {
+  font-style: italic;
+}
+
+li input {
+  border: none;
+}
+
+li textarea {
+  color: #474747;
+  border: none;
+  resize: none;
+  width: 100%;
+  height: 15px;
+  padding-left: 5px;
+}
+
+li input:focus,
+li textarea:focus {
+  outline: none;
+  background-color: transparent;
+}
+
+.fa-sync-alt {
+  color: #999;
+  cursor: pointer;
+}
+
+.fa-ellipsis-v {
+  color: #cbcbcb;
+  cursor: move;
+}
+
+.enter-icon {
+  background-image: url('./left-arrow.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 14px;
+  width: 14px;
+  cursor: pointer;
+}
+
+#clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 53px;
+}
+
+#clear button {
+  color: #999;
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#clear button:hover {
+  color: black;
+  text-decoration: underline;
+}
