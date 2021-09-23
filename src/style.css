@@ -61,6 +61,11 @@ li textarea:focus {
   background-color: transparent;
 }
 
+.marked {
+  text-decoration: line-through;
+  color: #999;
+}
+
 .fa-sync-alt {
   color: #999;
   cursor: pointer;
