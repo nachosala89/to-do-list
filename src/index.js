@@ -30,17 +30,23 @@ const showList = (tasksList) => {
 let tasksList = [];
 let checkboxes;
 
-window.addEventListener('load', () => {
-  const storedList = JSON.parse(localStorage.getItem('tasks'));
-  if (storedList !== null) {
-    tasksList = [...storedList];
-  } else {
-    tasksList = [new Task(1, 'wash the dishes'), new Task(2, 'complete To Do list project')];
-  }
-  showList(tasksList);
+const pageLoaded = new Promise((resolve) => {
+  window.addEventListener('load', () => {
+    const storedList = JSON.parse(localStorage.getItem('tasks'));
+    if (storedList !== null) {
+      tasksList = [...storedList];
+    } else {
+      tasksList = [new Task(1, 'wash the dishes'), new Task(2, 'complete To Do list project')];
+    }
+    showList(tasksList);
+    resolve(1);
+  });
+});
+
+pageLoaded.then(() => {
   checkboxes = document.querySelectorAll('[type="checkbox"]');
-  for (let i = 0; i < checkboxes.length; i += 1) {
-    checkboxes[i].addEventListener('change', () => { updateStatus(tasksList, i) });
-  }
+  checkboxes.forEach((item, index) => {
+    item.addEventListener('change', () => { updateStatus(tasksList, index); });
+  });
   markTasksList(tasksList);
 });
