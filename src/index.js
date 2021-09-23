@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/js/fontawesome.js';
 import '@fortawesome/fontawesome-free/js/solid.js';
 import '@fortawesome/fontawesome-free/js/regular.js';
 import '@fortawesome/fontawesome-free/js/brands.js';
+import { updateStatus, markTasksList } from './updateStatus.js';
 
 class Task {
   constructor(index, description) {
@@ -14,17 +15,38 @@ class Task {
 
 const sortList = (tasksList) => tasksList.sort((a, b) => a.index - b.index);
 
-let tasksList = [new Task(1, 'wash the dishes'), new Task(2, 'complete To Do list project')];
-
 const listContainer = document.querySelector('ul');
 
-const showList = () => {
+const showList = (tasksList) => {
   tasksList = sortList(tasksList);
-  tasksList.forEach((item) => {
+  tasksList.forEach((item, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<input type="checkbox" id="check-${item.index}"><textarea>${item.description}</textarea><i class="fas fa-ellipsis-v"></i>`;
+    li.setAttribute('id', `item-${index}`);
+    li.innerHTML = `<input type="checkbox"><textarea>${item.description}</textarea><i class="fas fa-ellipsis-v"></i>`;
     listContainer.appendChild(li);
   });
 };
 
-showList();
+let tasksList = [];
+let checkboxes;
+
+const pageLoaded = new Promise((resolve) => {
+  window.addEventListener('load', () => {
+    const storedList = JSON.parse(localStorage.getItem('tasks'));
+    if (storedList !== null) {
+      tasksList = [...storedList];
+    } else {
+      tasksList = [new Task(1, 'wash the dishes'), new Task(2, 'complete To Do list project')];
+    }
+    showList(tasksList);
+    resolve(1);
+  });
+});
+
+pageLoaded.then(() => {
+  checkboxes = document.querySelectorAll('[type="checkbox"]');
+  checkboxes.forEach((item, index) => {
+    item.addEventListener('change', () => { updateStatus(tasksList, index); });
+  });
+  markTasksList(tasksList);
+});

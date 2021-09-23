@@ -21,6 +21,7 @@
 
 To get a local copy up and running follow these simple example steps:
 - Clone the repo to your computer.
+- Run "npm install" to make webpack works.
 - Open ./dist/index.html in your browser.
 
 👤 **Nacho Sala**
