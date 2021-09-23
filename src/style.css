@@ -5,11 +5,16 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 #list-container {
   width: 80%;
   max-width: 600px;
   background-color: #f6f6f6;
   box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  margin: auto;
 }
 
 ul {
