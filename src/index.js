@@ -1,10 +1,6 @@
 import './style.css';
-import '@fortawesome/fontawesome-free/js/fontawesome.js';
-import '@fortawesome/fontawesome-free/js/solid.js';
-import '@fortawesome/fontawesome-free/js/regular.js';
-import '@fortawesome/fontawesome-free/js/brands.js';
 import { updateStatus, markTasksList } from './updateStatus.js';
-import { addTask, updateDescription } from './addRemove.js';
+import { addTask, updateDescription, removeTask, removeMarked } from './addRemove.js';
 
 
 export class Task {
@@ -15,28 +11,58 @@ export class Task {
   }
 }
 
-const sortList = (tasksList) => tasksList.sort((a, b) => a.index - b.index);
-
 const listContainer = document.querySelector('ul');
+
+export const setTaskListeners = (tasksList, index) => {
+  let text = document.querySelector(`#item-${index} textarea`);
+
+  text.addEventListener('change', () => {
+    updateDescription(tasksList, index, text); 
+  });
+
+  text.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      updateDescription(tasksList, index, text);
+      document.activeElement.blur();
+    }
+  });
+  text.addEventListener('focus', () => {
+    const icon = text.nextElementSibling;
+    icon.classList.remove('fa-ellipsis-v');
+    icon.classList.add('fa-trash-alt');
+  });
+
+  text.addEventListener('blur', () => {
+    const icon = text.nextElementSibling;
+    icon.classList.add('fa-ellipsis-v');
+    icon.classList.remove('fa-trash-alt');
+  });
+
+  const check = document.querySelector(`#item-${index} input`); 
+  check.addEventListener('change', () => { updateStatus(tasksList, index); });
+  const rmBtn = document.querySelector(`#item-${index} i`);
+  rmBtn.addEventListener('click', () => { removeTask(tasksList, index); });
+}
 
 export const showTask = (container, tasksList, item, index) => {
   const li = document.createElement('li');
   li.setAttribute('id', `item-${index}`);
+  li.classList.add('task-item');
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
-  checkbox.setAttribute('id', `check-${index}`);
   li.appendChild(checkbox);
   const text = document.createElement('textarea');
   text.textContent = item.description;
   li.appendChild(text);
-  li.innerHTML += '<i class="fas fa-ellipsis-v"></i>';
+  const icon = document.createElement('i');
+  icon.classList.add('fas', 'fa-ellipsis-v');
+  li.appendChild(icon);
   container.appendChild(li);
-  const check = document.querySelector(`#check-${index}`); 
-  check.addEventListener('change', () => { updateStatus(tasksList, index); });
+  setTaskListeners(tasksList, index);
 }
 
-const showList = (tasksList) => {
-  tasksList = sortList(tasksList);
+export const showList = (tasksList) => {
   tasksList.forEach((item, index) => {
     showTask(listContainer, tasksList, item, index);
   });
@@ -49,8 +75,6 @@ const pageLoaded = new Promise((resolve) => {
     const storedList = JSON.parse(localStorage.getItem('tasks'));
     if (storedList !== null) {
       tasksList = [...storedList];
-    } else {
-      tasksList = [new Task(1, 'wash the dishes'), new Task(2, 'complete To Do list project')];
     }
     showList(tasksList);
     markTasksList(tasksList);
@@ -69,14 +93,6 @@ pageLoaded.then(() => {
   const addBtn = document.querySelector('.enter-icon');
   addBtn.addEventListener('click', () => { addTask(tasksList, addIn); });
 
-  let textIns = document.querySelectorAll('textarea');
-  textIns.forEach((item, index) => {
-    item.addEventListener('change', () => { updateDescription(tasksList, index, item); });
-    item.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        updateDescription(tasksList, index, item);
-      }
-    });
-  });
+  const clearBtn = document.querySelector('#clear button');
+  clearBtn.addEventListener('click', () => { removeMarked(tasksList); });
 });
