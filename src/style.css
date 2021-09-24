@@ -28,7 +28,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   border: 1px solid #ebebeb;
   padding: 0 10px;
   font-size: 15px;
@@ -53,6 +53,7 @@ li textarea {
   width: 100%;
   height: 15px;
   padding-left: 5px;
+  overflow: hidden;
 }
 
 li input:focus,
