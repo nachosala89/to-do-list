@@ -1,13 +1,21 @@
 import Task from './taskClass.js';
 
 export const listAddTask = (tasksList, description) => {
-  const task = new Task(tasksList.length, description);
+  const task = new Task(tasksList.length + 1, description);
   tasksList.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasksList));
 };
 
 export const listUpdateIndexes = (tasksList) => {
-  tasksList.forEach((task, index) => { task.index = index; });
+  let i = 1;
+  for (let j = 0; j < tasksList.length; j += 1) {
+    if (!tasksList[j].deleted) {
+      tasksList[j].index = i;
+      i += 1;
+    } else {
+      tasksList[j].index = 0;
+    }
+  }
   localStorage.setItem('tasks', JSON.stringify(tasksList));
 };
 
@@ -17,6 +25,8 @@ export const updateDescription = (tasksList, index, textIn) => {
 };
 
 export const listRemoveTask = (tasksList, index) => {
-  tasksList.splice(index, 1);
+  tasksList[index].deleted = true;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
 };
+
+export const cleanList = (oldList) => oldList.filter((task) => !task.deleted);

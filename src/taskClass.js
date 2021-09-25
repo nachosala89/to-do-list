@@ -3,5 +3,6 @@ export default class Task {
     this.index = index;
     this.description = description;
     this.completed = false;
+    this.deleted = false;
   }
 }

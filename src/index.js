@@ -1,6 +1,7 @@
 import './style.css';
 import { markTasksList } from './updateStatus.js';
 import { showList, addTask, removeMarked } from './showItems.js';
+import { cleanList } from './listManager.js';
 
 let tasksList = [];
 
@@ -8,7 +9,7 @@ const pageLoaded = new Promise((resolve) => {
   window.addEventListener('load', () => {
     const storedList = JSON.parse(localStorage.getItem('tasks'));
     if (storedList !== null) {
-      tasksList = [...storedList];
+      tasksList = cleanList(storedList);
     }
     showList(tasksList);
     markTasksList(tasksList);

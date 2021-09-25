@@ -34,7 +34,6 @@ export const setTaskListeners = (tasksList, index) => {
   check.addEventListener('change', () => { updateStatus(tasksList, index); });
 
   const rmBtn = document.querySelector(`.item-${index} i`);
-  // eslint-disable-next-line no-use-before-define
   rmBtn.addEventListener('click', () => { removeTask(tasksList, index); });
 };
 
@@ -61,31 +60,19 @@ export const showList = (tasksList) => {
   });
 };
 
-export const updateIndexes = (tasksList) => {
-  listUpdateIndexes(tasksList);
-  const liSet = document.querySelectorAll('.task-item');
-  liSet.forEach((li) => {
-    li.remove();
-  });
-  showList(tasksList);
-};
-
 export const removeTask = (tasksList, index) => {
   const li = document.querySelector(`.item-${index}`);
   li.remove();
   listRemoveTask(tasksList, index);
-  updateIndexes(tasksList);
+  listUpdateIndexes(tasksList);
 };
 
 export const removeMarked = (tasksList) => {
-  let i = 0;
-  while (i < tasksList.length) {
-    if (tasksList[i].completed) {
-      removeTask(tasksList, i);
-    } else {
-      i += 1;
+  tasksList.forEach((task, index) => {
+    if (task.completed && !task.deleted) {
+      removeTask(tasksList, index);
     }
-  }
+  });
 };
 
 export const addTask = (tasksList, addIn) => {
