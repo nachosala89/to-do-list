@@ -38,14 +38,6 @@ li:focus-within {
   background-color: #fff8c7;
 }
 
-#add-task input {
-  width: 100%;
-}
-
-#add-task input::placeholder {
-  font-style: italic;
-}
-
 li input {
   border: none;
 }
@@ -64,6 +56,14 @@ li input:focus,
 li textarea:focus {
   outline: none;
   background-color: transparent;
+}
+
+#add-task input {
+  width: 100%;
+}
+
+#add-task input::placeholder {
+  font-style: italic;
 }
 
 .marked {
