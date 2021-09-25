@@ -28,7 +28,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
   border: 1px solid #ebebeb;
   padding: 0 10px;
   font-size: 15px;
@@ -36,10 +36,6 @@ li {
 
 li:focus-within {
   background-color: #fff8c7;
-}
-
-#add-task input::placeholder {
-  font-style: italic;
 }
 
 li input {
@@ -53,12 +49,21 @@ li textarea {
   width: 100%;
   height: 15px;
   padding-left: 5px;
+  overflow: auto;
 }
 
 li input:focus,
 li textarea:focus {
   outline: none;
   background-color: transparent;
+}
+
+#add-task input {
+  width: 100%;
+}
+
+#add-task input::placeholder {
+  font-style: italic;
 }
 
 .marked {
@@ -74,6 +79,11 @@ li textarea:focus {
 .fa-ellipsis-v {
   color: #cbcbcb;
   cursor: move;
+}
+
+.fa-trash-alt {
+  color: #cbcbcb;
+  cursor: pointer;
 }
 
 .enter-icon {

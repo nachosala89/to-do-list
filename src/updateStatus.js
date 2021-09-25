@@ -1,6 +1,6 @@
 const markTask = (task, i) => {
-  const text = document.querySelector(`#item-${i} textarea`);
-  const checkbox = document.querySelector(`#item-${i} input`);
+  const text = document.querySelector(`.item-${i} textarea`);
+  const checkbox = document.querySelector(`.item-${i} input`);
   if (task.completed) {
     text.classList.add('marked');
     checkbox.checked = true;
