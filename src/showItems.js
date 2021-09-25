@@ -3,6 +3,13 @@ import {
   listAddTask, updateDescription, listUpdateIndexes, listRemoveTask,
 } from './listManager.js';
 
+export const removeTask = (tasksList, index) => {
+  const li = document.querySelector(`.item-${index}`);
+  li.remove();
+  listRemoveTask(tasksList, index);
+  listUpdateIndexes(tasksList);
+};
+
 export const setTaskListeners = (tasksList, index) => {
   const text = document.querySelector(`.item-${index} textarea`);
 
@@ -58,13 +65,6 @@ export const showList = (tasksList) => {
   tasksList.forEach((item, index) => {
     showTask(listContainer, tasksList, index);
   });
-};
-
-export const removeTask = (tasksList, index) => {
-  const li = document.querySelector(`.item-${index}`);
-  li.remove();
-  listRemoveTask(tasksList, index);
-  listUpdateIndexes(tasksList);
 };
 
 export const removeMarked = (tasksList) => {
