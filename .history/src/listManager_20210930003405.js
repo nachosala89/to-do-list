@@ -26,9 +26,9 @@ export const updateDescription = (tasksList, index, textIn) => {
 };
 
 export const listRemoveTask = (tasksList, index) => {
+  // console.log(tasksList);
   tasksList[index].deleted = true;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
-  return tasksList;
 };
 
 export const cleanList = (oldList) => oldList.filter((task) => !task.deleted);

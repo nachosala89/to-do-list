@@ -13,5 +13,5 @@ test('Add item to empty list', () => {
 test('remove item from list', () => {
   const expectedTask = new Task(1, 'Wash dishes');
   const tasksList = [expectedTask];
-  expect(listRemoveTask(tasksList, 0)).toStrictEqual([expectedTask]);
+  expect(listRemoveTask(tasksList, 1)).toStrictEqual([]);
 });
