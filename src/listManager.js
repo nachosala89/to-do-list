@@ -3,7 +3,8 @@ import Task from './taskClass.js';
 export const listAddTask = (tasksList, description) => {
   const task = new Task(tasksList.length + 1, description);
   tasksList.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasksList));
+  //localStorage.setItem('tasks', JSON.stringify(tasksList));
+  return tasksList;
 };
 
 export const listUpdateIndexes = (tasksList) => {
