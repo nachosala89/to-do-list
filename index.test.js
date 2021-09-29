@@ -1,5 +1,8 @@
 import { listAddTask } from './src/listManager.js';
 import Task from './src/taskClass.js';
+import LocalStorageMock from './tests/localStorage.js';
+
+global.localStorage = new LocalStorageMock();
 
 test('Add item to empty list', () => {
   const tasksList = [];
