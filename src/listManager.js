@@ -4,6 +4,7 @@ export const listAddTask = (tasksList, description) => {
   const task = new Task(tasksList.length + 1, description);
   tasksList.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasksList));
+  return tasksList;
 };
 
 export const listUpdateIndexes = (tasksList) => {
@@ -27,6 +28,7 @@ export const updateDescription = (tasksList, index, textIn) => {
 export const listRemoveTask = (tasksList, index) => {
   tasksList[index].deleted = true;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
+  return tasksList;
 };
 
 export const cleanList = (oldList) => oldList.filter((task) => !task.deleted);
