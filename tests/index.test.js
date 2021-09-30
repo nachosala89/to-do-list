@@ -29,13 +29,12 @@ describe('Remove items', () => {
 
 describe('Update items from list', () => {
   const tasksList = [new Task(0, 'Wash dishes'), new Task(1, 'Learn Jest')];
-  
+
   test('Mark Item as completed', () => {
-    document.body.innerHTML =
-    '<ul>' +
-      `<li class="task-item item-0"><input type="checkbox"><textarea>${tasksList[0].description}</textarea></li>` +
-      `<li class="task-item item-1"><input type="checkbox"><textarea>${tasksList[1].description}</textarea></li>` +
-    '</ul>';
+    document.body.innerHTML = '<ul>'
+      + `<li class="task-item item-0"><input type="checkbox"><textarea>${tasksList[0].description}</textarea></li>`
+      + `<li class="task-item item-1"><input type="checkbox"><textarea>${tasksList[1].description}</textarea></li>`
+    + '</ul>';
     updateStatus(tasksList, 0);
     expect(tasksList[0].completed).toBe(true);
   });
