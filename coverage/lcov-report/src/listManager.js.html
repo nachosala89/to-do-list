@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">92% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/24</span>
+                <span class='fraction'>23/25</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>4/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.14% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/21</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -90,7 +90,8 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -100,27 +101,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import Task from './taskClass.js';
@@ -132,22 +134,23 @@ export const listAddTask = (tasksList, description) =&gt; {
   return tasksList;
 };
 &nbsp;
-export const listUpdateIndexes = <span class="fstat-no" title="function not covered" >(t</span>asksList) =&gt; {
-  let i = <span class="cstat-no" title="statement not covered" >1;</span>
-<span class="cstat-no" title="statement not covered" >  for (let j = <span class="cstat-no" title="statement not covered" >0;</span> j &lt; tasksList.length; j += 1) {</span>
-<span class="cstat-no" title="statement not covered" >    if (!tasksList[j].deleted) {</span>
-<span class="cstat-no" title="statement not covered" >      tasksList[j].index = i;</span>
-<span class="cstat-no" title="statement not covered" >      i += 1;</span>
+export const listUpdateIndexes = (tasksList) =&gt; {
+  let i = 1;
+  for (let j = 0; j &lt; tasksList.length; j += 1) {
+    if (!tasksList[j].deleted) {
+      tasksList[j].index = i;
+      i += 1;
     } else {
-<span class="cstat-no" title="statement not covered" >      tasksList[j].index = 0;</span>
+      tasksList[j].index = 0;
     }
   }
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('tasks', JSON.stringify(tasksList));</span>
+  localStorage.setItem('tasks', JSON.stringify(tasksList));
 };
 &nbsp;
-export const updateDescription = <span class="fstat-no" title="function not covered" >(t</span>asksList, index, textIn) =&gt; {
-<span class="cstat-no" title="statement not covered" >  tasksList[index].description = textIn.value;</span>
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('tasks', JSON.stringify(tasksList));</span>
+export const updateDescription = (tasksList, index, textIn) =&gt; {
+  tasksList[index].description = textIn.value;
+  localStorage.setItem('tasks', JSON.stringify(tasksList));
+  return tasksList;
 };
 &nbsp;
 export const listRemoveTask = (tasksList, index) =&gt; {
@@ -163,7 +166,7 @@ export const cleanList = <span class="fstat-no" title="function not covered" >(o
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Sep 30 2021 15:58:03 GMT-0300 (hora estándar de Argentina)
+                at Thu Sep 30 2021 17:14:33 GMT-0300 (hora estándar de Argentina)
             </div>
         </div>
         <script src="../prettify.js"></script>
