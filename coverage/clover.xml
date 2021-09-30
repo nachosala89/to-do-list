@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1633013049424" clover="3.2.0">
+  <project timestamp="1633013049424" name="All files">
+    <metrics statements="30" coveredstatements="18" conditionals="4" coveredconditionals="0" methods="12" coveredmethods="5" elements="46" coveredelements="23" complexity="0" loc="30" ncloc="30" packages="2" files="3" classes="3"/>
+    <package name="src">
+      <metrics statements="25" coveredstatements="16" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="3"/>
+      <file name="listManager.js" path="/home/nacho/microverse/to-do-list/src/listManager.js">
+        <metrics statements="21" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+      <file name="taskClass.js" path="/home/nacho/microverse/to-do-list/src/taskClass.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests">
+      <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
+      <file name="localStorage.js" path="/home/nacho/microverse/to-do-list/tests/localStorage.js">
+        <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
