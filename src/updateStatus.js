@@ -20,4 +20,5 @@ export const updateStatus = (tasksList, i) => {
   tasksList[i].completed = !tasksList[i].completed;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
   markTask(tasksList[i], i);
+  return tasksList;
 };

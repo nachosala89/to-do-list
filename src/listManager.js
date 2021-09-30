@@ -23,6 +23,7 @@ export const listUpdateIndexes = (tasksList) => {
 export const updateDescription = (tasksList, index, textIn) => {
   tasksList[index].description = textIn.value;
   localStorage.setItem('tasks', JSON.stringify(tasksList));
+  return tasksList;
 };
 
 export const listRemoveTask = (tasksList, index) => {
