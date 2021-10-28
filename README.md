@@ -2,7 +2,7 @@
 
 # To-do List
 
-> This project, proposed by Microverse, consists of make a To-Do list application, to dynamically add, move, remove, and store tasks. I used Webpack to manage the different modules. The design was obtained from [this minimalist](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/).
+> This project, proposed by Microverse, consists of making a To-Do list application, to dynamically add, move, remove, and store tasks. I used Webpack to manage the different modules. The design was obtained from [this minimalist](https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/).
 
 ![screenshot](./screenshot.png)
 
